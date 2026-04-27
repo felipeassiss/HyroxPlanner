@@ -1,12 +1,16 @@
-def menu():
+def menu(): #Função responsável por mostrar o menu
+    print("=" * 40)
+    print(" " * 11 + "HYROX Planner") #Criação das tabulações gráficas pelo terminal
+    print("=" * 40)
 
-    print("\t \t MENU HYROX Planner \t \t \t")
-    
-    opcao = int(input(
-            ("Escolha uma opção: \n"
-            "1-adicionar treino \n"
-            "2-visualizar treinos existentes \n"
-            "3-editar treinos \n"
-            "4-excluir treinos \n")))
-    
+    print("[1] Adicionar treino")
+    print("[2] Visualizar treinos existentes") #Visualização das opções
+    print("[3] Editar treino")
+    print("[4] Excluir treino")
+    print("[0] Sair")
+
+    print("=" * 40)
+
+    opcao = int(input("Escolha uma opção: "))
+
     return opcao
