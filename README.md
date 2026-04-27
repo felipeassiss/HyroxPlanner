@@ -1,8 +1,8 @@
-# HyroxPlanner
+# HyroxPlanner (W.I.P)🚧🛠️
 
-O **HyroxPlanner** é um sistema em Python criado para auxiliar no cadastro, visualização e organização de treinos HYROX, voltados para corrida, força e simulados.
+O **HyroxPlanner** é um sistema desenvolvido em Python para auxiliar no cadastro, visualização e organização de treinos HYROX, com foco em corrida, força e simulados.
 
-O projeto foi desenvolvido com foco em praticar conceitos fundamentais de programação, como funções, dicionários, listas, entrada de dados, manipulação de datas e organização de código em módulos.
+O projeto foi criado com o objetivo de praticar conceitos fundamentais de programação, como funções, dicionários, listas, entrada de dados, manipulação de datas e organização do código em módulos.
 
 ## Funcionalidades
 
@@ -23,13 +23,26 @@ O projeto foi desenvolvido com foco em praticar conceitos fundamentais de progra
 
 ## Estrutura do treino
 
-Cada treino cadastrado possui as seguintes informações:
+Cada treino cadastrado possui informações organizadas em uma estrutura semelhante a esta:
 
 ```python
 {
-    "Nome": "Trote",
-    "Tipo": "Corrida",
-    "Data": "23/03/2026",
-    "Duração": "01:30:00",
-    "Intensidade": "leve"
+    "nome": "Trote",
+    "tipo": "Corrida",
+    "data": "23/03/2026",
+    "duracao": "01:30:00",
+    "intensidade": "leve"
 }
+```
+
+##
+
+## Contribuidores
+
+<div align="center">
+
+| [<img src="https://github.com/bryanmartins01.png" width="100" height="100" style="border-radius:50%">](https://github.com/bryanmartins01) | [<img src="https://github.com/felipeassiss.png" width="100" height="100" style="border-radius:50%">](https://github.com/felipeassiss) | [<img src="https://github.com/gabrielcrfp.png" width="100" height="100" style="border-radius:50%">](https://github.com/gabrielcrfp) | [<img src="https://github.com/gfva29.png" width="100" height="100" style="border-radius:50%">](https://github.com/gfva29) | [<img src="https://github.com/MourinhaJP.png" width="100" height="100" style="border-radius:50%">](https://github.com/MourinhaJP) | [<img src="https://github.com/leocadiok.png" width="100" height="100" style="border-radius:50%">](https://github.com/leocadiok) |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| **Bryan Martins** | **Felipe Assis** | **Gabriel** | **Gabriel Feitosa** | **João Pedro** | **Leocadio** |
+
+<div align="center">
