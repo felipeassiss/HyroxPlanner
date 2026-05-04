@@ -4,11 +4,7 @@ from visualizar_treino import visualizar_treino
 from editar_treino import editar_treino
 from excluir_treino import excluir_treino
 
-from datetime import datetime
-    
-
 def main():
-    
     while True:
         escolha = menu()
 
@@ -24,6 +20,12 @@ def main():
         elif escolha == 4:
             excluir_treino()
             
+        elif escolha == 0:
+            print("Encerrando HYROX Planner...")
+            break
+            
+        else:
+            print("Opção inválida! Tente novamente.\n")
 
-
-main()
+if __name__ == "__main__":
+    main()

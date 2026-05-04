@@ -11,6 +11,6 @@ def menu(): #Função responsável por mostrar o menu
 
     print("=" * 40)
 
-    opcao = int(input("Escolha uma opção: "))
+    opcao = int(input("Escolha uma opção: ")) #Entrado do usuária para escolha das
 
     return opcao

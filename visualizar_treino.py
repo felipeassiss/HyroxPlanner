@@ -1,4 +1,5 @@
 import cadastro_treino
+from tabulate import tabulate
 
 def visualizar_treino(): # Função responsável pela visualização do treino
         
@@ -14,12 +15,13 @@ def visualizar_treino(): # Função responsável pela visualização do treino
 
             treino_registro = cadastro_treino.treinos[nome_treino]
 
-            print("Nome:", treino_registro["nome"])
-            print("Tipo:", treino_registro["tipo"])
-            print("Data:", treino_registro["data"].strftime("%d/%m/%Y"))
-            print("Duracao:", treino_registro["duracao"])
-            print("Intensidade:", treino_registro["intensidade"])
-            print("\n")
+            data = [ ["Nome", treino_registro["nome"]], 
+                    ["Tipo", treino_registro["tipo"]], 
+                    ["Data", treino_registro["data"].strftime("%d/%m/%Y")], 
+                    ["Duracao", treino_registro["duracao"]], 
+                    ["Intensidade", treino_registro["intensidade"]]]
+            
+            print(tabulate(data, headers=["Atributo", "Descrição"], tablefmt="grid")) # Exibe as informações do treino em formato de tabela, utilizando a biblioteca tabulate
         
         else:
             print(("\nTreino não encontrado.\n")) # Caso contrário, mostra mensagem informando que não há treino com esse nome
