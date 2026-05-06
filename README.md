@@ -19,7 +19,7 @@ O projeto foi criado com o objetivo de praticar conceitos fundamentais de progra
 ## Tecnologias utilizadas
 
 - Python
-- Biblioteca `datetime`
+- Biblioteca `datetime`, `tabulate`
 
 ## Estrutura do treino
 
