@@ -15,8 +15,15 @@ def visualizar_treino(): # Função responsável pela visualização do treino
 
             treino_registro = cadastro_treino.treinos[nome_treino]
 
+            exercicios_texto = " "
+
+
+            for exercicio in treino_registro["exercicios"]:
+                exercicios_texto += f'{exercicio["nome"]} - {exercicio["repeticoes"]} repetições \n'
+
             data = [ ["Nome", treino_registro["nome"]], 
-                    ["Tipo", treino_registro["tipo"]], 
+                    ["Tipo", treino_registro["tipo"]],
+                    ["Exercícios", treino_registro["exercicios"]],
                     ["Data", treino_registro["data"].strftime("%d/%m/%Y")], 
                     ["Duracao", treino_registro["duracao"]], 
                     ["Intensidade", treino_registro["intensidade"]]]
