@@ -12,7 +12,7 @@ def cadastro_treino():
 
     qtd_exercicio = int(input("Digite a quantidade de exercicios que foram feitos: "))
 
-    exercicios = []
+    exercicios = [] #criando uma lista vazia para armazenar os exercícios, onde cada exercício é um dicionário com nome e repetições
     for i in range(qtd_exercicio): # 'for' que solicita ao usuário quantos foram feitos com seus respectivos nomes e repetições
 
         nome_exercicio = input("Digite o nome do exercicio: ")

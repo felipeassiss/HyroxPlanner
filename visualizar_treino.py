@@ -23,12 +23,12 @@ def visualizar_treino(): # Função responsável pela visualização do treino
 
             data = [ ["Nome", treino_registro["nome"]], 
                     ["Tipo", treino_registro["tipo"]],
-                    ["Exercícios", treino_registro["exercicios"]],
+                    ["Exercícios", exercicios_texto],
                     ["Data", treino_registro["data"].strftime("%d/%m/%Y")], 
                     ["Duracao", treino_registro["duracao"]], 
                     ["Intensidade", treino_registro["intensidade"]]]
             
-            print(tabulate(data, headers=["Atributo", "Descrição"], tablefmt="grid")) # Exibe as informações do treino em formato de tabela, utilizando a biblioteca tabulate
+            print(tabulate(data, headers=["Informação", "Descrição"], tablefmt="grid")) # Exibe as informações do treino em formato de tabela, utilizando a biblioteca tabulate
         
         else:
             print(("\nTreino não encontrado.\n")) # Caso contrário, mostra mensagem informando que não há treino com esse nome
