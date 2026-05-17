@@ -1,5 +1,5 @@
 from datetime import datetime, timedelta
-
+file = open("Treinos Registrados.txt", "a", encoding= 'utf8')
 treinos = {}
 
 def cadastro_treino():   
@@ -39,5 +39,6 @@ def cadastro_treino():
     }
 
     treinos[nome] = treino
-
+    file.writelines(f"{treinos}"'\n')
+    file.close()
     print("Treino cadastrado com sucesso!")
