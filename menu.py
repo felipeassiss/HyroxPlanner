@@ -7,6 +7,8 @@ def menu(): #Função responsável por mostrar o menu
     print("[2] Visualizar treinos existentes") #Visualização das opções
     print("[3] Editar treino")
     print("[4] Excluir treino")
+    print("[5] Competições")
+    print("[6]Visualizar competições")
     print("[0] Sair")
 
     print("=" * 40)
