@@ -46,3 +46,20 @@ Cada treino cadastrado possui informações organizadas em uma estrutura semelha
 | **Bryan Martins** | **Felipe Assis** | **Gabriel Cassemiro** | **Gabriel Feitosa** | **João Pedro** | **Karla** |
 
 <div align="center">
+
+PRIMEIRA VEZ:
+
+PASSOS PARA EDITAR O REPOSITÓRIO:
+1 - git clone https://github.com/felipeassiss/HyroxPlanner.git
+2 - git pull
+3 - APÓS EDIÇÕES, FAZER (git commit -m "TEXTO COM SUAS MODIFICAÇÕES"
+4 - git push (ENVIA SUAS ALTERAÇÕES PARA O REPOSITÓRIO
+
+
+
+APÓS JÁ TER CLONADO:
+
+PASSOS PARA EDITAR O REPOSITÓRIO:
+1- git pull
+2 - APÓS EDIÇÕES, FAZER (git commit -m "TEXTO COM SUAS MODIFICAÇÕES"
+3 - git push
