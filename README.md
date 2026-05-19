@@ -44,22 +44,48 @@ Cada treino cadastrado possui informações organizadas em uma estrutura semelha
 | [<img src="https://github.com/bryanmartins01.png" width="100" height="100" style="border-radius:50%">](https://github.com/bryanmartins01) | [<img src="https://github.com/felipeassiss.png" width="100" height="100" style="border-radius:50%">](https://github.com/felipeassiss) | [<img src="https://github.com/gabrielcrfp.png" width="100" height="100" style="border-radius:50%">](https://github.com/gabrielcrfp) | [<img src="https://github.com/gfva29.png" width="100" height="100" style="border-radius:50%">](https://github.com/gfva29) | [<img src="https://github.com/MourinhaJP.png" width="100" height="100" style="border-radius:50%">](https://github.com/MourinhaJP) | [<img src="https://github.com/leocadiok.png" width="100" height="100" style="border-radius:50%">](https://github.com/leocadiok) |
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | **Bryan Martins** | **Felipe Assis** | **Gabriel Cassemiro** | **Gabriel Feitosa** | **João Pedro** | **Karla** |
+</div>
 
-<div align="center">
+<br>
 
-PRIMEIRA VEZ:
+# Primeira vez
 
-PASSOS PARA EDITAR O REPOSITÓRIO:
-1 - git clone https://github.com/felipeassiss/HyroxPlanner.git
-2 - git pull
-3 - APÓS EDIÇÕES, FAZER (git commit -m "TEXTO COM SUAS MODIFICAÇÕES"
-4 - git push (ENVIA SUAS ALTERAÇÕES PARA O REPOSITÓRIO
+## OBS: É NECESSÁRIO TER O `git` PARA FAZER TODAS ESSAS ALTERAÇÕES
 
+### Clonar o repositório
+```bash
+git clone https://github.com/felipeassiss/HyroxPlanner.git
+```
 
+### Entrar na pasta
+```bash
+cd HyroxPlanner
+```
 
-APÓS JÁ TER CLONADO:
+### Atualizar o projeto
+```bash
+git pull
+```
 
-PASSOS PARA EDITAR O REPOSITÓRIO:
-1- git pull
-2 - APÓS EDIÇÕES, FAZER (git commit -m "TEXTO COM SUAS MODIFICAÇÕES"
-3 - git push
+### Após fazer alterações
+```bash
+git add .
+git commit -m "descrição das alterações"
+git push
+```
+
+---
+
+## Após já ter clonado
+
+### Atualizar o projeto
+```bash
+git pull
+```
+
+### Após fazer alterações
+```bash
+git add .
+git commit -m "descrição das alterações"
+git push
+```
