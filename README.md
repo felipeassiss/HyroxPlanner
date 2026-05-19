@@ -76,7 +76,7 @@ git push
 
 ---
 
-## Após já ter clonado
+# Após já ter clonado
 
 ### Atualizar o projeto
 ```bash
