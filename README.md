@@ -58,17 +58,7 @@ O código está organizado por **domínios de negócio**, facilitando a manuten�
 
 **Clonar o repositório:**
 ```bash
-git clone [https://github.com/felipeassiss/HyroxPlanner.git](https://github.com/felipeassiss/HyroxPlanner.git)
-
-<br>
-
-# Primeira vez
-
-## OBS: É NECESSÁRIO TER O `git` PARA FAZER TODAS ESSAS ALTERAÇÕES
-
-### Clonar o repositório
-```bash
-git clone https://github.com/felipeassiss/HyroxPlanner.git
+git clone https://github.com/felipeassiss/HyroxPlanner
 ```
 
 ### Entrar na pasta
