@@ -1,18 +1,61 @@
-def menu(): #Função responsável por mostrar o menu
-    print("=" * 40)
-    print(" " * 11 + "HYROX Planner") #Criação das tabulações gráficas pelo terminal
-    print("=" * 40)
+from utils import criar_arquivo, limpar, pausa
+from config import ARQUIVO
 
-    print("[1] Adicionar treino")
-    print("[2] Visualizar treinos existentes") #Visualização das opções
-    print("[3] Editar treino")
-    print("[4] Excluir treino")
-    print("[5] Competições")
-    print("[6]Visualizar competições")
-    print("[0] Sair")
+from treinos import (
+    adicionar_treino, 
+    listar_treinos, 
+    buscar_treino, 
+    editar_treino, 
+    excluir_treino
+)
 
-    print("=" * 40)
+from competicoes import cadastrar_competicao, visualizar_competicoes
+from agente_ia import falar_com_agente
 
-    opcao = int(input("Escolha uma opção: ")) #Entrado do usuária para escolha das
+def menu_principal():
+    criar_arquivo()
 
-    return opcao
+    while True:
+        limpar()
+
+        print("======== HYROX PLANNER ========")
+        print("1 - Cadastrar treino")
+        print("2 - Listar treinos")
+        print("3 - Buscar treino")
+        print("4 - Editar treino")
+        print("5 - Excluir treino")
+        print("-" * 31)
+        print("6 - Cadastrar competição")
+        print("7 - Visualizar competições")
+        print("-" * 31)
+        print("8 - Assistente IA (Analisar Treinos)")
+        print("0 - Sair")
+        print("===============================")
+
+        opcao = input("\nEscolha uma opção: ")
+
+        if opcao == "1":
+            adicionar_treino()
+        elif opcao == "2":
+            listar_treinos()
+        elif opcao == "3":
+            buscar_treino()
+        elif opcao == "4":
+            editar_treino()
+        elif opcao == "5":
+            excluir_treino()
+        elif opcao == "6":
+            cadastrar_competicao()
+        elif opcao == "7":
+            visualizar_competicoes()
+        elif opcao == "8":
+            limpar()
+            print("=== ASSISTENTE INTELIGENTE ===\n")
+            falar_com_agente(ARQUIVO, "Hyrox Planner")
+            pausa()
+        elif opcao == "0":
+            print("\nSaindo do sistema...")
+            break
+        else:
+            print("\nOpção inválida.")
+            pausa()
