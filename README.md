@@ -1,43 +1,43 @@
-# HyroxPlanner (W.I.P)🚧🛠️
+# HyroxPlanner 🏋️‍♂️📊 (W.I.P) 🚧🛠️
 
-O **HyroxPlanner** é um sistema desenvolvido em Python para auxiliar no cadastro, visualização e organização de treinos HYROX, com foco em corrida, força e simulados.
+O **HyroxPlanner** é um sistema de linha de comando (CLI) desenvolvido em Python para auxiliar no cadastro, visualização e organização de treinos HYROX, competições e simulações. 
 
-O projeto foi criado com o objetivo de praticar conceitos fundamentais de programação, como funções, dicionários, listas, entrada de dados, manipulação de datas e organização do código em módulos.
+## 🚀 Funcionalidades
 
-## Funcionalidades
+**Domínio de Treinos (CRUD)**
+- Cadastrar novos treinos (Nome, Tipo, Data, Duração e Intensidade)
+- Listar todos os treinos registrados
+- Buscar treinos específicos pelo nome
+- Editar dados de um treino existente
+- Excluir treinos do registro
 
-- Cadastro de treinos
-- Visualização de treinos cadastrados
-- Busca de treino pelo nome
-- Registro de informações como:
-  - Nome do treino
-  - Tipo do treino
-  - Data
-  - Duração
-  - Intensidade
+**Domínio de Competições**
+- Cadastrar novas competições (Nome, Data e Local)
+- Visualizar competições com **contagem regressiva automática** de dias até o evento
 
-## Tecnologias utilizadas
+**Assistente Inteligente (IA)**
+- Integração com a API da Groq (LLM Llama 3) para ler, analisar e responder perguntas contextuais sobre o seu histórico de treinos.
 
-- Python
-- Biblioteca `datetime`, `tabulate`
+## 💻 Tecnologias e Bibliotecas utilizadas
 
-## Estrutura do treino
+- **Python 3**
+- Bibliotecas nativas: `csv`, `os`, `datetime`
+- Bibliotecas externas: `groq` (Para a Inteligência Artificial), `python-dotenv` (Para segurança de senhas e variáveis de ambiente)
 
-Cada treino cadastrado possui informações organizadas em uma estrutura semelhante a esta:
+## 📁 Estrutura do Projeto
 
-```python
-{
-    "nome": "Trote",
-    "tipo": "Corrida",
-    "data": "23/03/2026",
-    "duracao": "01:30:00",
-    "intensidade": "leve"
-}
-```
+O código está organizado por **domínios de negócio**, facilitando a manutenção e escalabilidade:
 
-##
+- `treinos.py`: Lógica principal de gerenciamento dos treinos.
+- `competicoes.py`: Lógica de gerenciamento de campeonatos e cálculo de datas.
+- `agente_ia.py`: Integração com o LLM que faz a leitura dos dados.
+- `utils.py` / `config.py`: Ferramentas de apoio e configurações globais.
+- `menu.py` / `main.py`: Interface de navegação e ponto de entrada do sistema.
+- `treinos.csv` / `competicoes.txt`: Arquivos locais que funcionam como o banco de dados do sistema.
 
-## Contribuidores
+---
+
+## 👥 Contribuidores
 
 <div align="center">
 
@@ -45,6 +45,20 @@ Cada treino cadastrado possui informações organizadas em uma estrutura semelha
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | **Bryan Martins** | **Felipe Assis** | **Gabriel Cassemiro** | **Gabriel Feitosa** | **João Pedro** | **Karla** |
 </div>
+
+<br>
+
+---
+
+## ⚙️ Como rodar o projeto
+
+**OBS: É NECESSÁRIO TER O `git` E O `python` INSTALADOS NA SUA MÁQUINA.**
+
+### 1. Primeira vez (Instalação e Configuração)
+
+**Clonar o repositório:**
+```bash
+git clone [https://github.com/felipeassiss/HyroxPlanner.git](https://github.com/felipeassiss/HyroxPlanner.git)
 
 <br>
 
