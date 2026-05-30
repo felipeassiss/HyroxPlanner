@@ -41,10 +41,13 @@ O código está organizado por **domínios de negócio**, facilitando a manuten�
 
 <div align="center">
 
-| [<img src="https://github.com/bryanmartins01.png" width="100" height="100" style="border-radius:50%">](https://github.com/bryanmartins01) | [<img src="https://github.com/felipeassiss.png" width="100" height="100" style="border-radius:50%">](https://github.com/felipeassiss) | [<img src="https://github.com/gabrielcrfp.png" width="100" height="100" style="border-radius:50%">](https://github.com/gabrielcrfp) | [<img src="https://github.com/gfva29.png" width="100" height="100" style="border-radius:50%">](https://github.com/gfva29) | [<img src="https://github.com/MourinhaJP.png" width="100" height="100" style="border-radius:50%">](https://github.com/MourinhaJP) | [<img src="https://github.com/leocadiok.png" width="100" height="100" style="border-radius:50%">](https://github.com/leocadiok) |
-|:--:|:--:|:--:|:--:|:--:|:--:|
-| **Bryan Martins** | **Felipe Assis** | **Gabriel Cassemiro** | **Gabriel Feitosa** | **João Pedro** | **Karla** |
+| [<img src="https://github.com/brenomontenegro0508-droid.png" width="100" height="100" style="border-radius:50%">](https://github.com/brenomontenegro0508-droid) | [<img src="https://github.com/bryanmartins01.png" width="100" height="100" style="border-radius:50%">](https://github.com/bryanmartins01) | [<img src="https://github.com/felipeassiss.png" width="100" height="100" style="border-radius:50%">](https://github.com/felipeassiss) | [<img src="https://github.com/gabrielcrfp.png" width="100" height="100" style="border-radius:50%">](https://github.com/gabrielcrfp) | [<img src="https://github.com/gfva29.png" width="100" height="100" style="border-radius:50%">](https://github.com/gfva29) | [<img src="https://github.com/MourinhaJP.png" width="100" height="100" style="border-radius:50%">](https://github.com/MourinhaJP) | [<img src="https://github.com/leocadiok.png" width="100" height="100" style="border-radius:50%">](https://github.com/leocadiok) |
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| **Breno Montenegro** | **Bryan Martins** | **Felipe Assis** | **Gabriel Cassemiro** | **Gabriel Feitosa** | **João Pedro** | **Karla** |
+
 </div>
+
+<br>
 
 <br>
 
