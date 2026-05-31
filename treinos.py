@@ -29,7 +29,7 @@ def adicionar_treino():
 
     with open(ARQUIVO, "a", newline="", encoding="utf-8") as arquivo:
         escritor = csv.writer(arquivo)
-        # Salvamos o id_treino, os metadados do treino e a string contendo os exercícios na 7ª coluna
+        
         escritor.writerow([
             id_treino, nome, tipo, data, duracao, intensidade, exercicios_str
         ])
@@ -56,7 +56,7 @@ def listar_treinos():
                 print(f"Data........: {linha[3]}")
                 print(f"Duração.....: {linha[4]}")
                 print(f"Intensidade.: {linha[5]}")
-                # Proteção para garantir exibição apenas se a coluna de exercícios existir na linha
+
                 if len(linha) > 6:
                     print(f"Exercícios..: {linha[6]}")
                 print("-" * 35)
@@ -144,7 +144,6 @@ def editar_treino():
                     
                     exercicios_str = " | ".join(lista_exercicios) if lista_exercicios else "Nenhum cadastrado"
                     
-                    # Garante que a linha tenha tamanho suficiente antes de atualizar o índice
                     while len(linha) < 7:
                         linha.append("")
                     linha[6] = exercicios_str
@@ -209,5 +208,88 @@ def excluir_treino():
             
     except FileNotFoundError:
         print("Arquivo não encontrado.")
+
+    pausa()
+
+def analisar_historico():
+    limpar()
+    print("=== ANÁLISE INTELIGENTE DE TREINOS ===\n")
+
+    try:
+        with open(ARQUIVO, "r", encoding="utf-8") as arquivo:
+            leitor = csv.reader(arquivo)
+            next(leitor, None) # Pula o cabeçalho
+
+            total_treinos = 0
+            tempo_total = 0
+            tipos_treino = {}
+            intensidades = {}
+
+            for linha in leitor:
+                if len(linha) < 6:
+                    continue
+
+                total_treinos += 1
+
+                # Mapeia o Tipo de treino (ex: Força, Corrida)
+                tipo = linha[2].strip().title()
+                tipos_treino[tipo] = tipos_treino.get(tipo, 0) + 1
+
+                # Mapeia a Intensidade
+                intensidade = linha[5].strip().title()
+                intensidades[intensidade] = intensidades.get(intensidade, 0) + 1
+
+                # Tenta extrair a duração em minutos
+                duracao_str = ''.join(filter(str.isdigit, linha[4]))
+                if duracao_str:
+                    tempo_total += int(duracao_str)
+
+            if total_treinos == 0:
+                print("Não há treinos suficientes para analisar. Vá treinar e registre no sistema!")
+                pausa()
+                return
+
+            # =========================================
+            # EXIBIÇÃO DOS DADOS
+            # =========================================
+            print(f"Total de treinos registrados: {total_treinos}")
+            
+            if tempo_total > 0:
+                media_tempo = tempo_total // total_treinos
+                print(f"Tempo total suando a camisa: {tempo_total} minutos")
+                print(f"Duração média por treino: {media_tempo} minutos")
+
+            print("\n--- Tipos de Treino Mais Frequentes ---")
+            for t, qtd in sorted(tipos_treino.items(), key=lambda x: x[1], reverse=True):
+                print(f"- {t}: {qtd} vezes")
+
+            print("\n--- Perfil de Intensidade ---")
+            for i, qtd in sorted(intensidades.items(), key=lambda x: x[1], reverse=True):
+                print(f"- {i}: {qtd} treinos")
+
+            # =========================================
+            # IA DE RECOMENDAÇÕES BASEADA NOS DADOS
+            # =========================================
+            print("\n===== RECOMENDAÇÕES BASEADAS NO SEU HISTÓRICO =====")
+
+            if total_treinos < 3:
+                print("- Você está no começo! O segredo agora é consistência. Tente bater 5 treinos registrados.")
+            elif total_treinos >= 10:
+                print("- Volume sólido! Você já criou um bom hábito de treinos.")
+
+            if len(tipos_treino) == 1:
+                unico_tipo = list(tipos_treino.keys())[0]
+                print(f"- Você está focando 100% em '{unico_tipo}'. Considere adicionar mobilidade ou cardio para equilibrar.")
+            elif len(tipos_treino) >= 3:
+                print("- Boa variedade de estímulos. Seu corpo não está caindo na rotina!")
+
+            if tempo_total > 0:
+                if media_tempo < 30:
+                    print("- Seus treinos estão curtinhos. Se o objetivo for resistência, experimente sessões um pouco mais longas.")
+                elif media_tempo > 90:
+                    print("- Treinos bem longos identificados! Não esqueça que o descanso (recovery) é onde o músculo cresce.")
+
+    except FileNotFoundError:
+        print("Arquivo não encontrado. Cadastre seu primeiro treino para o sistema poder analisar!")
 
     pausa()

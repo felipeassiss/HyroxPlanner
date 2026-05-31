@@ -6,7 +6,8 @@ from treinos import (
     listar_treinos, 
     buscar_treino, 
     editar_treino, 
-    excluir_treino
+    excluir_treino,
+    analisar_historico  # <-- Função de análise importada aqui
 )
 
 from competicoes import cadastrar_competicao, visualizar_competicoes
@@ -28,7 +29,8 @@ def menu_principal():
         print("6 - Cadastrar competição")
         print("7 - Visualizar competições")
         print("-" * 31)
-        print("8 - Assistente IA (Analisar Treinos)")
+        print("8 - Assistente IA (Falar com Agente)")
+        print("9 - Análise Inteligente do Histórico") # <-- Nova opção adicionada no menu visual
         print("0 - Sair")
         print("===============================")
 
@@ -53,6 +55,8 @@ def menu_principal():
             print("=== ASSISTENTE INTELIGENTE ===\n")
             falar_com_agente(ARQUIVO, "Hyrox Planner")
             pausa()
+        elif opcao == "9":
+            analisar_historico()
         elif opcao == "0":
             print("\nSaindo do sistema...")
             break
