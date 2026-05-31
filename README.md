@@ -1,40 +1,80 @@
-# HyroxPlanner 🏋️‍♂️📊 (W.I.P) 🚧🛠️
+<div align="center">
 
-O **HyroxPlanner** é um sistema de linha de comando (CLI) desenvolvido em Python para auxiliar no cadastro, visualização e organização de treinos HYROX, competições e simulações. 
+  <img src="https://raw.githubusercontent.com/FortAwesome/Font-Awesome/6.x/svgs/solid/dumbbell.svg" alt="HyroxPlanner Logo" width="80" height="80">
+
+  # HyroxPlanner 🏋️‍♂️📊
+
+  <br>
+
+  ![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+  ![Groq](https://img.shields.io/badge/Groq-Powered-F55036?style=for-the-badge&logo=groq&logoColor=white)
+  ![License](https://img.shields.io/badge/License-GPLv3-green?style=for-the-badge)
+  <br>
+
+</div>
+
+---
+
+O **HyroxPlanner** é um sistema de linha de comando **CLI**, desenvolvido em **Python**, criado para auxiliar no cadastro, visualização e organização de treinos HYROX, competições e simulações.
+
+Além das funcionalidades tradicionais de gerenciamento de treinos, o projeto também conta com um assistente inteligente integrado à API da **Groq**, permitindo análises e respostas contextuais com base no histórico de treinos registrado.
+
+---
 
 ## 🚀 Funcionalidades
 
-**Domínio de Treinos (CRUD)**
-- Cadastrar novos treinos (Nome, Tipo, Data, Duração e Intensidade)
+### 🏋️ Domínio de Treinos (CRUD)
+
+- Cadastrar novos treinos com nome, tipo, data, duração e intensidade
 - Listar todos os treinos registrados
 - Buscar treinos específicos pelo nome
 - Editar dados de um treino existente
 - Excluir treinos do registro
 
-**Domínio de Competições**
-- Cadastrar novas competições (Nome, Data e Local)
-- Visualizar competições com **contagem regressiva automática** de dias até o evento
+### 🏆 Domínio de Competições
 
-**Assistente Inteligente (IA)**
-- Integração com a API da Groq (LLM Llama 3) para ler, analisar e responder perguntas contextuais sobre o seu histórico de treinos.
+- Cadastrar novas competições com nome, data e local
+- Visualizar competições cadastradas
+- Exibir contagem regressiva automática de dias até o evento
 
-## 💻 Tecnologias e Bibliotecas utilizadas
+### 🤖 Assistente Inteligente com IA
+
+- Integração com a API da Groq
+- Uso de LLM para interpretar dados do histórico de treinos
+- Respostas contextuais sobre desempenho, registros e evolução dos treinos
+
+---
+
+## 💻 Tecnologias e Bibliotecas Utilizadas
 
 - **Python 3**
-- Bibliotecas nativas: `csv`, `os`, `datetime`
-- Bibliotecas externas: `groq` (Para a Inteligência Artificial), `python-dotenv` (Para segurança de senhas e variáveis de ambiente)
+- **Groq API**
+- **python-dotenv**
+- Bibliotecas nativas:
+  - `csv`
+  - `os`
+  - `datetime`
+
+---
 
 ## 📁 Estrutura do Projeto
 
-O código está organizado por **domínios de negócio**, facilitando a manutenção e escalabilidade:
+O código está organizado por **domínios de negócio**, facilitando a manutenção, leitura e evolução do projeto.
 
-- `treinos.py`: Lógica principal de gerenciamento dos treinos.
-- `competicoes.py`: Lógica de gerenciamento de campeonatos e cálculo de datas.
-- `agente_ia.py`: Integração com o LLM que faz a leitura dos dados.
-- `utils.py` / `config.py`: Ferramentas de apoio e configurações globais.
-- `menu.py` / `main.py`: Interface de navegação e ponto de entrada do sistema.
-- `treinos.csv` / `competicoes.txt`: Arquivos locais que funcionam como o banco de dados do sistema.
-
+```bash
+HyroxPlanner/
+│
+├── treinos.py          # Gerenciamento dos treinos
+├── competicoes.py      # Gerenciamento das competições
+├── agente_ia.py        # Integração com o assistente inteligente
+├── utils.py            # Funções auxiliares
+├── config.py           # Configurações globais
+├── menu.py             # Interface de navegação
+├── main.py             # Ponto de entrada do sistema
+│
+├── treinos.csv         # Base local de treinos
+└── competicoes.txt     # Base local de competições
+```
 ---
 
 ## 👥 Contribuidores
