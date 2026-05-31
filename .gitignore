@@ -1,3 +1,6 @@
 __pycache__
 venv
 treinos.csv
+.venv
+.env
+treinos.csv

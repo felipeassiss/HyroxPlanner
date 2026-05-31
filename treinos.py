@@ -12,12 +12,26 @@ def adicionar_treino():
     duracao = validar_texto(input("Duração: "))
     intensidade = validar_texto(input("Intensidade: "))
 
+    # Loop para cadastrar múltiplos exercícios e repetições
+    print("\n--- Cadastro de Exercícios ---")
+    lista_exercicios = []
+    while True:
+        exercicio = input("Nome do exercício (ou deixe em branco para finalizar): ").strip()
+        if not exercicio:
+            break
+        repeticoes = input(f"Quantidade de repetições para '{exercicio}': ").strip()
+        lista_exercicios.append(f"{exercicio} ({repeticoes} reps)")
+    
+    # Junta os exercícios cadastrados em uma única string separados por " | "
+    exercicios_str = " | ".join(lista_exercicios) if lista_exercicios else "Nenhum cadastrado"
+
     id_treino = gerar_id()
 
     with open(ARQUIVO, "a", newline="", encoding="utf-8") as arquivo:
         escritor = csv.writer(arquivo)
+        # Salvamos o id_treino, os metadados do treino e a string contendo os exercícios na 7ª coluna
         escritor.writerow([
-            id_treino, nome, tipo, data, duracao, intensidade
+            id_treino, nome, tipo, data, duracao, intensidade, exercicios_str
         ])
 
     print("\nTreino cadastrado com sucesso!")
@@ -42,6 +56,9 @@ def listar_treinos():
                 print(f"Data........: {linha[3]}")
                 print(f"Duração.....: {linha[4]}")
                 print(f"Intensidade.: {linha[5]}")
+                # Proteção para garantir exibição apenas se a coluna de exercícios existir na linha
+                if len(linha) > 6:
+                    print(f"Exercícios..: {linha[6]}")
                 print("-" * 35)
 
             if not encontrou:
@@ -59,23 +76,28 @@ def buscar_treino():
     busca = input("Digite o nome do treino: ").lower()
     encontrou = False
 
-    with open(ARQUIVO, "r", encoding="utf-8") as arquivo:
-        leitor = csv.reader(arquivo)
-        next(leitor)
+    try:
+        with open(ARQUIVO, "r", encoding="utf-8") as arquivo:
+            leitor = csv.reader(arquivo)
+            next(leitor)
 
-        for linha in leitor:
-            if busca in linha[1].lower():
-                encontrou = True
-                print(f"\nID: {linha[0]}")
-                print(f"Nome: {linha[1]}")
-                print(f"Tipo: {linha[2]}")
-                print(f"Data: {linha[3]}")
-                print(f"Duração: {linha[4]}")
-                print(f"Intensidade: {linha[5]}")
-                print("-" * 30)
+            for linha in leitor:
+                if busca in linha[1].lower():
+                    encontrou = True
+                    print(f"\nID: {linha[0]}")
+                    print(f"Nome: {linha[1]}")
+                    print(f"Tipo: {linha[2]}")
+                    print(f"Data: {linha[3]}")
+                    print(f"Duração: {linha[4]}")
+                    print(f"Intensidade: {linha[5]}")
+                    if len(linha) > 6:
+                        print(f"Exercícios: {linha[6]}")
+                    print("-" * 30)
 
-    if not encontrou:
-        print("\nTreino não encontrado.")
+        if not encontrou:
+            print("\nTreino não encontrado.")
+    except FileNotFoundError:
+        print("Arquivo não encontrado.")
 
     pausa()
 
@@ -93,32 +115,53 @@ def editar_treino():
     linhas_atualizadas = []
     encontrou = False
 
-    with open(ARQUIVO, "r", encoding="utf-8") as arquivo:
-        leitor = csv.reader(arquivo)
-        cabecalho = next(leitor)
-        linhas_atualizadas.append(cabecalho)
+    try:
+        with open(ARQUIVO, "r", encoding="utf-8") as arquivo:
+            leitor = csv.reader(arquivo)
+            cabecalho = next(leitor)
+            linhas_atualizadas.append(cabecalho)
 
-        for linha in leitor:
-            if linha[0] == id_busca:
-                encontrou = True
-                print("\nDigite os novos dados:\n")
+            for linha in leitor:
+                if linha[0] == id_busca:
+                    encontrou = True
+                    print("\nDigite os novos dados:\n")
 
-                linha[1] = validar_texto(input("Nome: "))
-                linha[2] = validar_texto(input("Tipo: "))
-                linha[3] = validar_texto(input("Data: "))
-                linha[4] = validar_texto(input("Duração: "))
-                linha[5] = validar_texto(input("Intensidade: "))
+                    linha[1] = validar_texto(input("Nome: "))
+                    linha[2] = validar_texto(input("Tipo: "))
+                    linha[3] = validar_texto(input("Data: "))
+                    linha[4] = validar_texto(input("Duração: "))
+                    linha[5] = validar_texto(input("Intensidade: "))
 
-            linhas_atualizadas.append(linha)
+                    # Loop para redefinir a lista de exercícios na edição
+                    print("\n--- Atualizar Exercícios ---")
+                    lista_exercicios = []
+                    while True:
+                        exercicio = input("Nome do exercício (ou deixe em branco para finalizar): ").strip()
+                        if not exercicio:
+                            break
+                        repeticoes = input(f"Quantidade de repetições para '{exercicio}': ").strip()
+                        lista_exercicios.append(f"{exercicio} ({repeticoes} reps)")
+                    
+                    exercicios_str = " | ".join(lista_exercicios) if lista_exercicios else "Nenhum cadastrado"
+                    
+                    # Garante que a linha tenha tamanho suficiente antes de atualizar o índice
+                    while len(linha) < 7:
+                        linha.append("")
+                    linha[6] = exercicios_str
 
-    if encontrou:
-        with open(ARQUIVO, "w", newline="", encoding="utf-8") as arquivo:
-            escritor = csv.writer(arquivo)
-            escritor.writerows(linhas_atualizadas)
+                linhas_atualizadas.append(linha)
 
-        print("\nTreino updated com sucesso!")
-    else:
-        print("\nID não encontrado.")
+        if encontrou:
+            with open(ARQUIVO, "w", newline="", encoding="utf-8") as arquivo:
+                escritor = csv.writer(arquivo)
+                escritor.writerows(linhas_atualizadas)
+
+            print("\nTreino atualizado com sucesso!")
+        else:
+            print("\nID não encontrado.")
+            
+    except FileNotFoundError:
+        print("Arquivo não encontrado.")
 
     pausa()
 
@@ -143,24 +186,28 @@ def excluir_treino():
     linhas_atualizadas = []
     encontrou = False
 
-    with open(ARQUIVO, "r", encoding="utf-8") as arquivo:
-        leitor = csv.reader(arquivo)
-        cabecalho = next(leitor)
-        linhas_atualizadas.append(cabecalho)
+    try:
+        with open(ARQUIVO, "r", encoding="utf-8") as arquivo:
+            leitor = csv.reader(arquivo)
+            cabecalho = next(leitor)
+            linhas_atualizadas.append(cabecalho)
 
-        for linha in leitor:
-            if linha[0] == id_busca:
-                encontrou = True
-            else:
-                linhas_atualizadas.append(linha)
+            for linha in leitor:
+                if linha[0] == id_busca:
+                    encontrou = True
+                else:
+                    linhas_atualizadas.append(linha)
 
-    if encontrou:
-        with open(ARQUIVO, "w", newline="", encoding="utf-8") as arquivo:
-            escritor = csv.writer(arquivo)
-            escritor.writerows(linhas_atualizadas)
+        if encontrou:
+            with open(ARQUIVO, "w", newline="", encoding="utf-8") as arquivo:
+                escritor = csv.writer(arquivo)
+                escritor.writerows(linhas_atualizadas)
 
-        print("\nTreino excluído com sucesso!")
-    else:
-        print("\nID não encontrado.")
+            print("\nTreino excluído com sucesso!")
+        else:
+            print("\nID não encontrado.")
+            
+    except FileNotFoundError:
+        print("Arquivo não encontrado.")
 
     pausa()

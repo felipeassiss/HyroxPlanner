@@ -1,2 +1,2 @@
-tabulate
 groq
+python-dotenv
