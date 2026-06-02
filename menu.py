@@ -1,7 +1,7 @@
 import os
 import time
 import threading
-
+#adiciona menu
 # ╔══════════════════════════════════════════════════════════════╗
 #                    IMPORTAÇÕES DO REPOSITÓRIO
 # ╚══════════════════════════════════════════════════════════════╝
