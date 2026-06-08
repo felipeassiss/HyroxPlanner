@@ -143,4 +143,4 @@ def menu_exer_funcionais():
             print("\nOpção inválida.")
 
 
-menu_exercicios()
+menu_exer_funcionais()
