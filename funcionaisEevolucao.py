@@ -111,7 +111,7 @@ def mostrar_evolucao():
     print(f"Média de repetições: {media:.1f}\n")
 
 
-def menu_exercicios():
+def menu_exer_funcionais():
 
     criar_arquivo()
 
