@@ -9,12 +9,16 @@ from utils import criar_arquivo
 from config import ARQUIVO
 
 from treinos import (
-    adicionar_treino, 
-    listar_treinos, 
-    buscar_treino, 
-    editar_treino, 
+    adicionar_treino,
+    listar_treinos,
+    buscar_treino,
+    editar_treino,
     excluir_treino,
-    analisar_historico
+    analisar_historico,
+    cadastrar_exercicio,
+    listar_exercicios,
+    evolucao_atleta,
+    _criar_arquivo_func,
 )
 
 from competicoes import cadastrar_competicao, visualizar_competicoes
@@ -139,6 +143,7 @@ def banner():
 def menu_principal():
     """Exibe e gerencia as opções principais mescladas com o repositório."""
     criar_arquivo()
+    _criar_arquivo_func()
 
     while True:
         titulo("Hyrox Planner")
@@ -150,18 +155,23 @@ def menu_principal():
         opcao_menu("4", "Editar treino")
         opcao_menu("5", "Excluir treino")
 
+        subtitulo("EXERCÍCIOS HYROX")
+        opcao_menu("6",  "Cadastrar exercício")
+        opcao_menu("7",  "Listar exercícios")
+        opcao_menu("8",  "Evolução do atleta")
+
         subtitulo("COMPETIÇÕES")
-        opcao_menu("6", "Cadastrar competição")
-        opcao_menu("7", "Visualizar competições")
+        opcao_menu("9",  "Cadastrar competição")
+        opcao_menu("10", "Visualizar competições")
 
         subtitulo("INTELIGÊNCIA ARTIFICIAL")
-        opcao_menu("8", "Assistente IA (Falar com Agente)", cor_num="roxo", cor_txt="roxo")
-        opcao_menu("9", "Análise Inteligente do Histórico")
+        opcao_menu("11", "Assistente IA (Falar com Agente)", cor_num="roxo", cor_txt="roxo")
+        opcao_menu("12", "Análise Inteligente do Histórico")
 
         subtitulo("FERRAMENTAS EXTRAS")
-        opcao_menu("10", "Cronômetro")
-        opcao_menu("11", "Conversor de ritmo (Pace)")
-        opcao_menu("12", "Contador regressivo")
+        opcao_menu("13", "Cronômetro")
+        opcao_menu("14", "Conversor de ritmo (Pace)")
+        opcao_menu("15", "Contador regressivo")
 
         subtitulo("SISTEMA")
         opcao_menu("0", "Sair", cor_num="vermelho", cor_txt="cinza")
@@ -170,7 +180,6 @@ def menu_principal():
         linha(char="─", cor_linha="cinza")
         escolha = input_estilizado("Escolha uma opção", "amarelo").strip()
 
-        # Roteamento baseado no HyroxPlanner
         if escolha == "1":
             adicionar_treino()
         elif escolha == "2":
@@ -182,21 +191,27 @@ def menu_principal():
         elif escolha == "5":
             excluir_treino()
         elif escolha == "6":
-            cadastrar_competicao()
+            cadastrar_exercicio()
         elif escolha == "7":
-            visualizar_competicoes()
+            listar_exercicios()
         elif escolha == "8":
+            evolucao_atleta()
+        elif escolha == "9":
+            cadastrar_competicao()
+        elif escolha == "10":
+            visualizar_competicoes()
+        elif escolha == "11":
             limpar_tela()
             print(cor("\n=== ASSISTENTE INTELIGENTE ===\n", "roxo", "negrito"))
             falar_com_agente(ARQUIVO, "Hyrox Planner")
             pressione_enter()
-        elif escolha == "9":
-            analisar_historico()
-        elif escolha == "10":
-            cronometro()
-        elif escolha == "11":
-            conversor_ritmo()
         elif escolha == "12":
+            analisar_historico()
+        elif escolha == "13":
+            cronometro()
+        elif escolha == "14":
+            conversor_ritmo()
+        elif escolha == "15":
             contador_regressivo()
         elif escolha == "0":
             tela_saida()
