@@ -13,7 +13,6 @@ EXERCICIOS_HYROX = [
     "Farmer's Carry", "Sandbag Lunges", "Box Push-Ups", "Rowing"
 ]
 
-
 def _criar_arquivo_func():
     if not os.path.exists(ARQUIVO_FUNC):
         with open(ARQUIVO_FUNC, "w", encoding="utf-8") as f:
