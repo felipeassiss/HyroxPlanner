@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyroxPlanner - Assistente IA</title>
+</head>
+<body>
+    <nav aria-label="Navegação">
+        <a href="/" class="link-voltar" id="btn-voltar">← Voltar ao Início</a>
+    </nav>
+
+    <main id="chat-container">
+        <header class="chat-cabecalho">
+            <h2>🤖 Assistente IA - Llama 3 (Groq)</h2>
+        </header>
+        
+        <section id="area-mensagens" class="chat-historico">
+            
+            <div class="mensagem balao-ia">
+                <p>Olá! Sou a IA do HyroxPlanner. Analisei seus treinos. O que você gostaria de saber?</p>
+            </div>
+            
+            <div class="mensagem balao-usuario">
+                <p>Qual foi meu treino mais longo no histórico?</p>
+            </div>
+            
+        </section>
+
+        <form id="form-chat" class="chat-controles">
+            <input type="text" id="input-mensagem" name="mensagem" placeholder="Pergunte sobre seus dados..." required autocomplete="off">
+            <button type="submit" id="btn-enviar-chat">Enviar</button>
+        </form>
+    </main>
+</body>
+</html>
