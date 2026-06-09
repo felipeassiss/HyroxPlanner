@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HyroxPlanner - Gerenciar Treinos</title>
+</head>
+<body>
+    <nav aria-label="Navegação">
+        <a href="/" class="link-voltar" id="btn-voltar">← Voltar ao Início</a>
+    </nav>
+    
+    <main id="treinos-container">
+        <section class="secao-formulario">
+            <h2>➕ Cadastrar Treino</h2>
+            
+            <form id="form-cadastro-treino">
+                <div class="grupo-input">
+                    <label for="nome">Nome do treino:</label>
+                    <input type="text" id="nome" name="nome" required placeholder="Ex: Força Total">
+                </div>
+
+                <div class="grupo-input">
+                    <label for="tipo">Tipo do treino:</label>
+                    <input type="text" id="tipo" name="tipo" required placeholder="Ex: Corrida, Força">
+                </div>
+
+                <div class="grupo-input">
+                    <label for="data">Data:</label>
+                    <input type="date" id="data" name="data" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="duracao">Duração (minutos):</label>
+                    <input type="number" id="duracao" name="duracao" min="1" required>
+                </div>
+
+                <div class="grupo-input">
+                    <label for="intensidade">Intensidade:</label>
+                    <select id="intensidade" name="intensidade" required>
+                        <option value="Baixa">Baixa</option>
+                        <option value="Média">Média</option>
+                        <option value="Alta">Alta</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="btn-salvar">Salvar Treino</button>
+            </form>
+        </section>
+
+        <section class="secao-listagem">
+            <h2>📋 Histórico de Treinos</h2>
+            
+            <table id="tabela-treinos">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Data</th>
+                        <th>Duração</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="corpo-tabela-treinos">
+                    <tr data-id="1">
+                        <td>Treino A</td>
+                        <td>Força</td>
+                        <td>20/05/2026</td>
+                        <td>45 min</td>
+                        <td>
+                            <button class="btn-editar" data-id="1">Editar</button>
+                            <button class="btn-excluir" data-id="1">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</body>
+</html>
